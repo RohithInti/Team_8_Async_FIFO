@@ -1,0 +1,419 @@
+vlog -sv async_fifo.sv fifo_seq_item.sv fifo_agent_pkg.sv fifo_scoreboard.sv
+# QuestaSim-64 vlog 2021.3_1 Compiler 2021.08 Aug 15 2021
+# Start time: 22:28:17 on May 22,2025
+# vlog -reportprogress 300 -sv async_fifo.sv fifo_seq_item.sv fifo_agent_pkg.sv fifo_scoreboard.sv 
+# -- Compiling module async_fifo
+# ** Note: (vlog-2286) fifo_seq_item.sv(1): Using implicit +incdir+/pkgs/mentor/questa/2021.3_1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package fifo_seq_item_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling package fifo_agent_pkg
+# -- Importing package fifo_seq_item_sv_unit
+# -- Compiling package fifo_scoreboard_sv_unit
+# -- Importing package fifo_seq_item_sv_unit
+# 
+# Top level modules:
+# 	async_fifo
+# End time: 22:28:18 on May 22,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vlog -sv -mfcu async_fifo_if.sv fifo_sequences.sv fifo_env.sv fifo_test.sv fifo_tb_top.sv
+# QuestaSim-64 vlog 2021.3_1 Compiler 2021.08 Aug 15 2021
+# Start time: 22:28:19 on May 22,2025
+# vlog -reportprogress 300 -sv -mfcu async_fifo_if.sv fifo_sequences.sv fifo_env.sv fifo_test.sv fifo_tb_top.sv 
+# -- Compiling interface async_fifo_if
+# ** Note: (vlog-2286) fifo_sequences.sv(1): Using implicit +incdir+/pkgs/mentor/questa/2021.3_1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# ** Warning: fifo_sequences.sv(2): (vlog-13233) Design unit "async_fifo_if_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
+# -- Compiling package async_fifo_if_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package fifo_seq_item_sv_unit
+# -- Importing package fifo_agent_pkg
+# -- Importing package fifo_scoreboard_sv_unit
+# -- Compiling module fifo_tb_top
+# 
+# Top level modules:
+# 	fifo_tb_top
+# End time: 22:28:20 on May 22,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 1
+vsim -voptargs=+acc -L mtiUvm work.fifo_tb_top +UVM_TESTNAME=fifo_test -sv_seed  random -do "run -all"
+# vsim -voptargs="+acc" -L mtiUvm work.fifo_tb_top "+UVM_TESTNAME=fifo_test" -sv_seed random -do "run -all" 
+# Start time: 22:28:27 on May 22,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.fifo_seq_item_sv_unit(fast)
+# Loading work.fifo_scoreboard_sv_unit(fast)
+# Loading work.async_fifo_if(fast)
+# Loading work.fifo_agent_pkg(fast)
+# Loading work.async_fifo_if_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.fifo_tb_top(fast)
+# Loading work.async_fifo_if(fast__2)
+# Loading work.async_fifo(fast)
+# Loading /pkgs/mentor/questa/2021.3_1/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# Sv_Seed = 2608898808
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test fifo_test...
+# UVM_ERROR fifo_scoreboard.sv(57) @ 2066: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xa131caed got 0x0
+# UVM_INFO fifo_scoreboard.sv(62) @ 2074: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xabccbb59
+# UVM_INFO fifo_scoreboard.sv(62) @ 2082: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xabccbb59
+# UVM_INFO fifo_scoreboard.sv(62) @ 2090: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x539cf615
+# UVM_INFO fifo_scoreboard.sv(62) @ 2098: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x539cf615
+# UVM_INFO fifo_scoreboard.sv(62) @ 2106: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xe98a5c86
+# UVM_INFO fifo_scoreboard.sv(62) @ 2114: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xe98a5c86
+# UVM_INFO fifo_scoreboard.sv(62) @ 2122: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xbe4e7b25
+# UVM_INFO fifo_scoreboard.sv(62) @ 2130: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xbe4e7b25
+# UVM_INFO fifo_scoreboard.sv(62) @ 2138: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xcd8991eb
+# UVM_INFO fifo_scoreboard.sv(62) @ 2146: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xcd8991eb
+# UVM_INFO fifo_scoreboard.sv(62) @ 2154: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x3f996cca
+# UVM_INFO fifo_scoreboard.sv(62) @ 2162: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x3f996cca
+# UVM_INFO fifo_scoreboard.sv(62) @ 2170: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xfe43f9ed
+# UVM_INFO fifo_scoreboard.sv(62) @ 2178: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xfe43f9ed
+# UVM_INFO fifo_scoreboard.sv(62) @ 2186: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x73932778
+# UVM_INFO fifo_scoreboard.sv(62) @ 2194: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x73932778
+# UVM_INFO fifo_scoreboard.sv(62) @ 2202: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x6d2aba02
+# UVM_INFO fifo_scoreboard.sv(62) @ 2210: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x6d2aba02
+# UVM_INFO fifo_scoreboard.sv(62) @ 2218: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x28766828
+# UVM_INFO fifo_scoreboard.sv(62) @ 2226: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x28766828
+# UVM_INFO fifo_scoreboard.sv(62) @ 2234: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x44a52592
+# UVM_INFO fifo_scoreboard.sv(62) @ 2242: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x44a52592
+# UVM_INFO fifo_scoreboard.sv(62) @ 2250: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xccb7be1a
+# UVM_INFO fifo_scoreboard.sv(62) @ 2258: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xccb7be1a
+# UVM_INFO fifo_scoreboard.sv(62) @ 2266: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x854361d0
+# UVM_INFO fifo_scoreboard.sv(62) @ 2274: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x854361d0
+# UVM_INFO fifo_scoreboard.sv(62) @ 2282: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x20a72234
+# UVM_INFO fifo_scoreboard.sv(62) @ 2290: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x20a72234
+# UVM_INFO fifo_scoreboard.sv(62) @ 2298: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x1e7a672e
+# UVM_INFO fifo_scoreboard.sv(62) @ 2306: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x1e7a672e
+# UVM_INFO fifo_scoreboard.sv(62) @ 2314: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xef4fb712
+# UVM_INFO fifo_scoreboard.sv(62) @ 2322: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xef4fb712
+# UVM_INFO fifo_scoreboard.sv(62) @ 2330: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8d20eb54
+# UVM_INFO fifo_scoreboard.sv(62) @ 2338: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8d20eb54
+# UVM_INFO fifo_scoreboard.sv(62) @ 2346: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4eeac8c3
+# UVM_INFO fifo_scoreboard.sv(62) @ 2354: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4eeac8c3
+# UVM_INFO fifo_scoreboard.sv(62) @ 2362: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xb0536d5e
+# UVM_INFO fifo_scoreboard.sv(62) @ 2370: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xb0536d5e
+# UVM_INFO fifo_scoreboard.sv(62) @ 2378: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xcfea4bcc
+# UVM_INFO fifo_scoreboard.sv(62) @ 2386: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xcfea4bcc
+# UVM_INFO fifo_scoreboard.sv(62) @ 2394: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc374cca2
+# UVM_INFO fifo_scoreboard.sv(62) @ 2402: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc374cca2
+# UVM_INFO fifo_scoreboard.sv(62) @ 2410: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x831c89a2
+# UVM_INFO fifo_scoreboard.sv(62) @ 2418: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x831c89a2
+# UVM_INFO fifo_scoreboard.sv(62) @ 2426: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc828a24e
+# UVM_INFO fifo_scoreboard.sv(62) @ 2434: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc828a24e
+# UVM_INFO fifo_scoreboard.sv(62) @ 2442: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xf20c682c
+# UVM_INFO fifo_scoreboard.sv(62) @ 2450: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xf20c682c
+# UVM_INFO fifo_scoreboard.sv(62) @ 2458: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x37f8b184
+# UVM_INFO fifo_scoreboard.sv(62) @ 2466: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x37f8b184
+# UVM_INFO fifo_scoreboard.sv(62) @ 2474: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xec0c5423
+# UVM_INFO fifo_scoreboard.sv(62) @ 2482: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xec0c5423
+# UVM_INFO fifo_scoreboard.sv(62) @ 2490: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4a0bceef
+# UVM_INFO fifo_scoreboard.sv(62) @ 2498: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4a0bceef
+# UVM_INFO fifo_scoreboard.sv(62) @ 2506: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4b6133fb
+# UVM_INFO fifo_scoreboard.sv(62) @ 2514: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4b6133fb
+# UVM_INFO fifo_scoreboard.sv(62) @ 2522: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x53a72913
+# UVM_INFO fifo_scoreboard.sv(62) @ 2530: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x53a72913
+# UVM_INFO fifo_scoreboard.sv(62) @ 2538: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x7c8bedff
+# UVM_INFO fifo_scoreboard.sv(62) @ 2546: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x7c8bedff
+# UVM_INFO fifo_scoreboard.sv(62) @ 2554: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc382c195
+# UVM_INFO fifo_scoreboard.sv(62) @ 2562: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc382c195
+# UVM_INFO fifo_scoreboard.sv(62) @ 2570: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xff188c72
+# UVM_INFO fifo_scoreboard.sv(62) @ 2578: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xff188c72
+# UVM_INFO fifo_scoreboard.sv(62) @ 2586: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x5c819080
+# UVM_INFO fifo_scoreboard.sv(62) @ 2594: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x5c819080
+# UVM_INFO fifo_scoreboard.sv(62) @ 2602: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x431ed903
+# UVM_INFO fifo_scoreboard.sv(62) @ 2610: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x431ed903
+# UVM_INFO fifo_scoreboard.sv(62) @ 2618: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xde848def
+# UVM_INFO fifo_scoreboard.sv(62) @ 2626: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xde848def
+# UVM_INFO fifo_scoreboard.sv(62) @ 2634: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x5a7c43f
+# UVM_INFO fifo_scoreboard.sv(62) @ 2642: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x5a7c43f
+# UVM_INFO fifo_scoreboard.sv(62) @ 2650: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x67aac98a
+# UVM_INFO fifo_scoreboard.sv(62) @ 2658: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x67aac98a
+# UVM_INFO fifo_scoreboard.sv(62) @ 2666: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4f4396fd
+# UVM_INFO fifo_scoreboard.sv(62) @ 2674: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4f4396fd
+# UVM_INFO fifo_scoreboard.sv(62) @ 2682: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xfe9d2ea5
+# UVM_INFO fifo_scoreboard.sv(62) @ 2690: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xfe9d2ea5
+# UVM_INFO fifo_scoreboard.sv(62) @ 2698: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xd365f7a4
+# UVM_INFO fifo_scoreboard.sv(62) @ 2706: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xd365f7a4
+# UVM_INFO fifo_scoreboard.sv(62) @ 2714: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x2ff7ddb6
+# UVM_INFO fifo_scoreboard.sv(62) @ 2722: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x2ff7ddb6
+# UVM_INFO fifo_scoreboard.sv(62) @ 2730: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x5ae9316d
+# UVM_INFO fifo_scoreboard.sv(62) @ 2738: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x5ae9316d
+# UVM_INFO fifo_scoreboard.sv(62) @ 2746: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xbf24a779
+# UVM_INFO fifo_scoreboard.sv(62) @ 2754: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xbf24a779
+# UVM_INFO fifo_scoreboard.sv(62) @ 2762: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x6eb1d902
+# UVM_INFO fifo_scoreboard.sv(62) @ 2770: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x6eb1d902
+# UVM_INFO fifo_scoreboard.sv(62) @ 2778: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xa5aca253
+# UVM_INFO fifo_scoreboard.sv(62) @ 2786: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xa5aca253
+# UVM_INFO fifo_scoreboard.sv(62) @ 2794: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x7b58aeac
+# UVM_INFO fifo_scoreboard.sv(62) @ 2802: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x7b58aeac
+# UVM_INFO fifo_scoreboard.sv(62) @ 2810: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xaab2cdf5
+# UVM_INFO fifo_scoreboard.sv(62) @ 2818: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xaab2cdf5
+# UVM_INFO fifo_scoreboard.sv(62) @ 2826: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x1c98f781
+# UVM_INFO fifo_scoreboard.sv(62) @ 2834: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x1c98f781
+# UVM_INFO fifo_scoreboard.sv(62) @ 2842: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xb5e07e39
+# UVM_INFO fifo_scoreboard.sv(62) @ 2850: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xb5e07e39
+# UVM_INFO fifo_scoreboard.sv(62) @ 2858: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xfa57d2e0
+# UVM_INFO fifo_scoreboard.sv(62) @ 2866: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xfa57d2e0
+# UVM_INFO fifo_scoreboard.sv(62) @ 2874: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xcec142d1
+# UVM_INFO fifo_scoreboard.sv(62) @ 2882: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xcec142d1
+# UVM_INFO fifo_scoreboard.sv(62) @ 2890: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x53e698a8
+# UVM_INFO fifo_scoreboard.sv(62) @ 2898: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x53e698a8
+# UVM_INFO fifo_scoreboard.sv(62) @ 2906: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x1030b3ba
+# UVM_INFO fifo_scoreboard.sv(62) @ 2914: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x1030b3ba
+# UVM_INFO fifo_scoreboard.sv(62) @ 2922: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x5764ac87
+# UVM_INFO fifo_scoreboard.sv(62) @ 2930: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x5764ac87
+# UVM_INFO fifo_scoreboard.sv(62) @ 2938: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xe5993200
+# UVM_INFO fifo_scoreboard.sv(62) @ 2946: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xe5993200
+# UVM_INFO fifo_scoreboard.sv(62) @ 2954: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x40f9fd68
+# UVM_INFO fifo_scoreboard.sv(62) @ 2962: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x40f9fd68
+# UVM_INFO fifo_scoreboard.sv(62) @ 2970: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x76ec414d
+# UVM_INFO fifo_scoreboard.sv(62) @ 2978: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x76ec414d
+# UVM_INFO fifo_scoreboard.sv(62) @ 2986: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xa88f1402
+# UVM_INFO fifo_scoreboard.sv(62) @ 2994: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xa88f1402
+# UVM_INFO fifo_scoreboard.sv(62) @ 3002: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xaed2441f
+# UVM_INFO fifo_scoreboard.sv(62) @ 3010: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xaed2441f
+# UVM_INFO fifo_scoreboard.sv(62) @ 3018: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xa21c99a
+# UVM_INFO fifo_scoreboard.sv(62) @ 3026: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xa21c99a
+# UVM_INFO fifo_scoreboard.sv(62) @ 3034: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x79de5d56
+# UVM_INFO fifo_scoreboard.sv(62) @ 3042: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x79de5d56
+# UVM_INFO fifo_scoreboard.sv(62) @ 3050: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x3b8cddde
+# UVM_INFO fifo_scoreboard.sv(62) @ 3058: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x3b8cddde
+# UVM_INFO fifo_scoreboard.sv(62) @ 3066: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xd7ac6a5f
+# UVM_INFO fifo_scoreboard.sv(62) @ 3074: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xd7ac6a5f
+# UVM_INFO fifo_scoreboard.sv(62) @ 3082: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x9c3f2ad6
+# UVM_INFO fifo_scoreboard.sv(62) @ 3090: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x9c3f2ad6
+# UVM_INFO fifo_scoreboard.sv(62) @ 3098: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x567f808d
+# UVM_INFO fifo_scoreboard.sv(62) @ 3106: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x567f808d
+# UVM_INFO fifo_scoreboard.sv(62) @ 3114: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4c2597c4
+# UVM_INFO fifo_scoreboard.sv(62) @ 3122: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4c2597c4
+# UVM_INFO fifo_scoreboard.sv(62) @ 3130: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x14481389
+# UVM_INFO fifo_scoreboard.sv(62) @ 3138: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x14481389
+# UVM_INFO fifo_scoreboard.sv(62) @ 3146: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x924a4033
+# UVM_INFO fifo_scoreboard.sv(62) @ 3154: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x924a4033
+# UVM_INFO fifo_scoreboard.sv(62) @ 3162: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x69be0817
+# UVM_INFO fifo_scoreboard.sv(62) @ 3170: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x69be0817
+# UVM_INFO fifo_scoreboard.sv(62) @ 3178: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x560d8082
+# UVM_INFO fifo_scoreboard.sv(62) @ 3186: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x560d8082
+# UVM_INFO fifo_scoreboard.sv(62) @ 3194: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xca7210a4
+# UVM_INFO fifo_scoreboard.sv(62) @ 3202: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xca7210a4
+# UVM_INFO fifo_scoreboard.sv(62) @ 3210: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x50ef6106
+# UVM_INFO fifo_scoreboard.sv(62) @ 3218: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x50ef6106
+# UVM_INFO fifo_scoreboard.sv(62) @ 3226: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xedc30e29
+# UVM_INFO fifo_scoreboard.sv(62) @ 3234: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xedc30e29
+# UVM_INFO fifo_scoreboard.sv(62) @ 3242: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x40279eef
+# UVM_INFO fifo_scoreboard.sv(62) @ 3250: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x40279eef
+# UVM_INFO fifo_scoreboard.sv(62) @ 3258: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x63aa8377
+# UVM_INFO fifo_scoreboard.sv(62) @ 3266: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x63aa8377
+# UVM_INFO fifo_scoreboard.sv(62) @ 3274: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x3192827c
+# UVM_INFO fifo_scoreboard.sv(62) @ 3282: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x3192827c
+# UVM_INFO fifo_scoreboard.sv(62) @ 3290: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xd325b65f
+# UVM_INFO fifo_scoreboard.sv(62) @ 3298: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xd325b65f
+# UVM_INFO fifo_scoreboard.sv(62) @ 3306: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc61e9b30
+# UVM_INFO fifo_scoreboard.sv(62) @ 3314: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc61e9b30
+# UVM_INFO fifo_scoreboard.sv(62) @ 3322: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x2ec47da3
+# UVM_INFO fifo_scoreboard.sv(62) @ 3330: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x2ec47da3
+# UVM_INFO fifo_scoreboard.sv(62) @ 3338: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x46884c7c
+# UVM_INFO fifo_scoreboard.sv(62) @ 3346: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x46884c7c
+# UVM_INFO fifo_scoreboard.sv(62) @ 3354: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xae40ed35
+# UVM_INFO fifo_scoreboard.sv(62) @ 3362: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xae40ed35
+# UVM_INFO fifo_scoreboard.sv(62) @ 3370: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x73cacbbd
+# UVM_INFO fifo_scoreboard.sv(62) @ 3378: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x73cacbbd
+# UVM_INFO fifo_scoreboard.sv(62) @ 3386: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xda82d482
+# UVM_INFO fifo_scoreboard.sv(62) @ 3394: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xda82d482
+# UVM_INFO fifo_scoreboard.sv(62) @ 3402: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4ca632e2
+# UVM_INFO fifo_scoreboard.sv(62) @ 3410: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x4ca632e2
+# UVM_INFO fifo_scoreboard.sv(62) @ 3418: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x7d50c09b
+# UVM_INFO fifo_scoreboard.sv(62) @ 3426: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x7d50c09b
+# UVM_INFO fifo_scoreboard.sv(62) @ 3434: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xecc4844
+# UVM_INFO fifo_scoreboard.sv(62) @ 3442: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xecc4844
+# UVM_INFO fifo_scoreboard.sv(62) @ 3450: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x6dfdecd9
+# UVM_INFO fifo_scoreboard.sv(62) @ 3458: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x6dfdecd9
+# UVM_INFO fifo_scoreboard.sv(62) @ 3466: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xa8564b23
+# UVM_INFO fifo_scoreboard.sv(62) @ 3474: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xa8564b23
+# UVM_INFO fifo_scoreboard.sv(62) @ 3482: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xdd3640ec
+# UVM_INFO fifo_scoreboard.sv(62) @ 3490: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xdd3640ec
+# UVM_INFO fifo_scoreboard.sv(62) @ 3498: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x6ac69f19
+# UVM_INFO fifo_scoreboard.sv(62) @ 3506: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x6ac69f19
+# UVM_INFO fifo_scoreboard.sv(62) @ 3514: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8534e69d
+# UVM_INFO fifo_scoreboard.sv(62) @ 3522: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8534e69d
+# UVM_INFO fifo_scoreboard.sv(62) @ 3530: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xe8af21b1
+# UVM_INFO fifo_scoreboard.sv(62) @ 3538: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xe8af21b1
+# UVM_INFO fifo_scoreboard.sv(62) @ 3546: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x7f228197
+# UVM_INFO fifo_scoreboard.sv(62) @ 3554: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x7f228197
+# UVM_INFO fifo_scoreboard.sv(62) @ 3562: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x47581282
+# UVM_INFO fifo_scoreboard.sv(62) @ 3570: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x47581282
+# UVM_INFO fifo_scoreboard.sv(62) @ 3578: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8f64ae72
+# UVM_INFO fifo_scoreboard.sv(62) @ 3586: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8f64ae72
+# UVM_INFO fifo_scoreboard.sv(62) @ 3594: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x396c23c9
+# UVM_INFO fifo_scoreboard.sv(62) @ 3602: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x396c23c9
+# UVM_INFO fifo_scoreboard.sv(62) @ 3610: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x61c64193
+# UVM_INFO fifo_scoreboard.sv(62) @ 3618: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x61c64193
+# UVM_INFO fifo_scoreboard.sv(62) @ 3626: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xadc1696a
+# UVM_INFO fifo_scoreboard.sv(62) @ 3634: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xadc1696a
+# UVM_INFO fifo_scoreboard.sv(62) @ 3642: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xb0e53598
+# UVM_INFO fifo_scoreboard.sv(62) @ 3650: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xb0e53598
+# UVM_INFO fifo_scoreboard.sv(62) @ 3658: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x9a7f23b2
+# UVM_INFO fifo_scoreboard.sv(62) @ 3666: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x9a7f23b2
+# UVM_INFO fifo_scoreboard.sv(62) @ 3674: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xe4986e78
+# UVM_INFO fifo_scoreboard.sv(62) @ 3682: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xe4986e78
+# UVM_INFO fifo_scoreboard.sv(62) @ 3690: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x6d080462
+# UVM_INFO fifo_scoreboard.sv(62) @ 3698: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x6d080462
+# UVM_INFO fifo_scoreboard.sv(62) @ 3706: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xece1d3ed
+# UVM_INFO fifo_scoreboard.sv(62) @ 3714: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xece1d3ed
+# UVM_INFO fifo_scoreboard.sv(62) @ 3722: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xb38dbc83
+# UVM_INFO fifo_scoreboard.sv(62) @ 3730: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xb38dbc83
+# UVM_INFO fifo_scoreboard.sv(62) @ 3738: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x36432e6d
+# UVM_INFO fifo_scoreboard.sv(62) @ 3746: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x36432e6d
+# UVM_INFO fifo_scoreboard.sv(62) @ 3754: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xad7e20a1
+# UVM_INFO fifo_scoreboard.sv(62) @ 3762: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xad7e20a1
+# UVM_INFO fifo_scoreboard.sv(62) @ 3770: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xae7f9a97
+# UVM_INFO fifo_scoreboard.sv(62) @ 3778: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xae7f9a97
+# UVM_INFO fifo_scoreboard.sv(62) @ 3786: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x9690ac8c
+# UVM_INFO fifo_scoreboard.sv(62) @ 3794: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x9690ac8c
+# UVM_INFO fifo_scoreboard.sv(62) @ 3802: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xeb90f9bc
+# UVM_INFO fifo_scoreboard.sv(62) @ 3810: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xeb90f9bc
+# UVM_INFO fifo_scoreboard.sv(62) @ 3818: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xff4b8c5
+# UVM_INFO fifo_scoreboard.sv(62) @ 3826: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xff4b8c5
+# UVM_INFO fifo_scoreboard.sv(62) @ 3834: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8d84e9a9
+# UVM_INFO fifo_scoreboard.sv(62) @ 3842: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8d84e9a9
+# UVM_INFO fifo_scoreboard.sv(62) @ 3850: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc6305d63
+# UVM_INFO fifo_scoreboard.sv(62) @ 3858: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc6305d63
+# UVM_INFO fifo_scoreboard.sv(62) @ 3866: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xdac9f18b
+# UVM_INFO fifo_scoreboard.sv(62) @ 3874: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xdac9f18b
+# UVM_INFO fifo_scoreboard.sv(62) @ 3882: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x3bd007eb
+# UVM_INFO fifo_scoreboard.sv(62) @ 3890: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x3bd007eb
+# UVM_INFO fifo_scoreboard.sv(62) @ 3898: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xd711b252
+# UVM_INFO fifo_scoreboard.sv(62) @ 3906: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xd711b252
+# UVM_INFO fifo_scoreboard.sv(62) @ 3914: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xe4387fe0
+# UVM_INFO fifo_scoreboard.sv(62) @ 3922: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xe4387fe0
+# UVM_INFO fifo_scoreboard.sv(62) @ 3930: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8dfdb9d4
+# UVM_INFO fifo_scoreboard.sv(62) @ 3938: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8dfdb9d4
+# UVM_INFO fifo_scoreboard.sv(62) @ 3946: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xaec4f266
+# UVM_INFO fifo_scoreboard.sv(62) @ 3954: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xaec4f266
+# UVM_INFO fifo_scoreboard.sv(62) @ 3962: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x54b92b70
+# UVM_INFO fifo_scoreboard.sv(62) @ 3970: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x54b92b70
+# UVM_INFO fifo_scoreboard.sv(62) @ 3978: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x305394a7
+# UVM_INFO fifo_scoreboard.sv(62) @ 3986: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x305394a7
+# UVM_INFO fifo_scoreboard.sv(62) @ 3994: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc1761a17
+# UVM_INFO fifo_scoreboard.sv(62) @ 4002: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc1761a17
+# UVM_INFO fifo_scoreboard.sv(62) @ 4010: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x9e585135
+# UVM_INFO fifo_scoreboard.sv(62) @ 4018: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x9e585135
+# UVM_INFO fifo_scoreboard.sv(62) @ 4026: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xa207db92
+# UVM_INFO fifo_scoreboard.sv(62) @ 4034: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xa207db92
+# UVM_INFO fifo_scoreboard.sv(62) @ 4042: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x7ff3f5e6
+# UVM_INFO fifo_scoreboard.sv(62) @ 4050: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x7ff3f5e6
+# UVM_INFO fifo_scoreboard.sv(62) @ 4058: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8dbcdd2b
+# UVM_INFO fifo_scoreboard.sv(62) @ 4066: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x8dbcdd2b
+# UVM_INFO fifo_scoreboard.sv(62) @ 4074: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x537ae08b
+# UVM_INFO fifo_scoreboard.sv(62) @ 4082: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0x537ae08b
+# UVM_INFO fifo_scoreboard.sv(62) @ 4090: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xd3a76013
+# UVM_INFO fifo_scoreboard.sv(62) @ 4098: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xd3a76013
+# UVM_INFO fifo_scoreboard.sv(62) @ 4106: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc31cbcca
+# UVM_INFO fifo_scoreboard.sv(62) @ 4130: uvm_test_top.env.sb [fifo_scoreboard] Match OK: 0xc31cbcca
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4146: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x8c1f81a0 got 0xf867cc89
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4154: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x8c1f81a0 got 0xf867cc89
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4162: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xa9587ffc got 0xad3e5eaa
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4178: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xa9587ffc got 0xad3e5eaa
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4186: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x510be61 got 0xca5f0214
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4226: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x510be61 got 0xca5f0214
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4234: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xc3be7ec3 got 0x6a2b32ac
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4242: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xc3be7ec3 got 0x6a2b32ac
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4250: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xfde70338 got 0xd1010f84
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4258: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xfde70338 got 0xd1010f84
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4282: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xc9e9727a got 0x33792a28
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4290: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xc9e9727a got 0x33792a28
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4306: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x82b91352 got 0x3bfffea1
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4322: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x82b91352 got 0x3bfffea1
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4330: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xfe657319 got 0x5f9d54e6
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4354: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xfe657319 got 0x5f9d54e6
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4386: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xf450d82a got 0x15f3abff
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4402: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xf450d82a got 0x15f3abff
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4426: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x83f392af got 0xd2225fde
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4434: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x83f392af got 0xd2225fde
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4442: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x3bb724c3 got 0x5d4ef315
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4450: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x3bb724c3 got 0x5d4ef315
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4458: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x31241263 got 0xcdd5e0e3
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4466: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x31241263 got 0xcdd5e0e3
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4474: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xbd8d0577 got 0x5c04034d
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4490: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xbd8d0577 got 0x5c04034d
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4498: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x4bfcee2e got 0x9eaf76a7
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4514: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x4bfcee2e got 0x9eaf76a7
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4522: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x7f811c34 got 0x2bb6d609
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4538: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x7f811c34 got 0x2bb6d609
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4554: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x2af508cf got 0x3795611a
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4562: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x2af508cf got 0x3795611a
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4570: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xfa7145a8 got 0x91d9a69c
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4578: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xfa7145a8 got 0x91d9a69c
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4586: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xb45e5ac7 got 0xd54d5ff8
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4594: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xb45e5ac7 got 0xd54d5ff8
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4602: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xa265f0c5 got 0x83b498d7
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4610: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xa265f0c5 got 0x83b498d7
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4626: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x1c21732d got 0x7445d4a4
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4634: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x1c21732d got 0x7445d4a4
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4642: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x1648066e got 0x93153446
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4650: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x1648066e got 0x93153446
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4658: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x2c3fe5a1 got 0x3aa1dd6a
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4666: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x2c3fe5a1 got 0x3aa1dd6a
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4674: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x24f120c0 got 0xc7a45289
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4698: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x24f120c0 got 0xc7a45289
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4714: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x82570262 got 0x5d9f7281
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4722: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x82570262 got 0x5d9f7281
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4730: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xbb20320d got 0x7a516670
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4738: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xbb20320d got 0x7a516670
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4762: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xf5b6e95 got 0xda1b2a6e
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4778: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xf5b6e95 got 0xda1b2a6e
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4786: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x17f4fffa got 0xbd55d5f2
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4794: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x17f4fffa got 0xbd55d5f2
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4818: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x9071674b got 0xbd16ffa
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4826: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x9071674b got 0xbd16ffa
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4834: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xdd26c3c6 got 0xe6bf0027
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4842: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xdd26c3c6 got 0xe6bf0027
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4850: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xc17ce5a got 0xf9b6741b
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4858: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xc17ce5a got 0xf9b6741b
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4866: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x8841296d got 0x1351ec6a
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4874: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0x8841296d got 0x1351ec6a
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4890: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xb1242d49 got 0xf9fb247e
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4898: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xb1242d49 got 0xf9fb247e
+# UVM_ERROR fifo_scoreboard.sv(57) @ 4906: uvm_test_top.env.sb [fifo_scoreboard] Mismatch: expected 0xa4435851 got 0x4f629c9c
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 5902: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  260
+# UVM_WARNING :    0
+# UVM_ERROR :   66
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [fifo_scoreboard]   322
+# ** Note: $finish    : /pkgs/mentor/questa/2021.3_1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 5902 ns  Iteration: 54  Instance: /fifo_tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /pkgs/mentor/questa/2021.3_1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+quit -sim
+# End time: 22:28:45 on May 22,2025, Elapsed time: 0:00:18
+# Errors: 0, Warnings: 1
