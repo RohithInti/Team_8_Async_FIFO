@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<coverage_report>
+<code_coverage_report
+byFile="1">
+<fileData path="async_fifo.sv">
+<branches active="16" hits="16" percent="100.00"/>
+<fec_conditions active="8" hits="8" percent="100.00"/>
+<fec_expressions active="6" hits="6" percent="100.00"/>
+<statements active="45" hits="45" percent="100.00"/>
+<toggleSummary active="400" hits="398" percent="99.50"/>
+</fileData>
+<fileData path="async_fifo_if.sv">
+<toggleSummary active="148" hits="146" percent="98.64"/>
+</fileData>
+<fileData path="fifo_agent_pkg.sv">
+<branches active="4" hits="4" percent="100.00"/>
+<fec_conditions active="2" hits="2" percent="100.00"/>
+<statements active="59" hits="56" percent="94.91"/>
+</fileData>
+<fileData path="fifo_coverage.sv">
+<statements active="9" hits="7" percent="77.77"/>
+</fileData>
+<fileData path="fifo_env.sv">
+<statements active="8" hits="8" percent="100.00"/>
+</fileData>
+<fileData path="fifo_scoreboard.sv">
+<branches active="14" hits="11" percent="78.57"/>
+<fec_conditions active="1" hits="1" percent="100.00"/>
+<statements active="23" hits="21" percent="91.30"/>
+</fileData>
+<fileData path="fifo_seq_item.sv">
+<statements active="1" hits="1" percent="100.00"/>
+</fileData>
+<fileData path="fifo_sequences.sv">
+<statements active="77" hits="66" percent="85.71"/>
+</fileData>
+<fileData path="fifo_tb_top.sv">
+<statements active="18" hits="18" percent="100.00"/>
+</fileData>
+<fileData path="fifo_test.sv">
+<statements active="23" hits="21" percent="91.30"/>
+</fileData>
+</code_coverage_report>
+<?mtifc_parse_db version="5.0"?>
+<functional_coverage_report>
+<cvgreport>
+<cover_group_types active="1" hits="na" percent="94.44"/>
+</cvgreport>
+<asrtReport>
+<assertion_successes active="8" hits="8" percent="100.00"/>
+</asrtReport>
+</functional_coverage_report>
+</coverage_report>
