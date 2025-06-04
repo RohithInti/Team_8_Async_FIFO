@@ -33,7 +33,6 @@ class fifo_coverage extends uvm_subscriber #(fifo_seq_item);
     cp_half_e: coverpoint tr.half_empty {bins no = {0}; bins yes = {1}; }
 
     cp_data_in: coverpoint tr.data_in  {
-      //option.auto_bin_max = 16;               
       wildcard bins zero = {32'h0000_0000};
       wildcard bins all_ones = {32'hFFFF_FFFF};
     }

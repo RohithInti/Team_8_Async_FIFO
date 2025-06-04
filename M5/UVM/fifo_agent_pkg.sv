@@ -22,7 +22,7 @@ package fifo_agent_pkg;
       function new (string name="fifo_seqr", uvm_component parent=null);
          super.new(name,parent);
       endfunction
-   endclass : fifo_seqr
+   endclass
 
    // Driver
    class fifo_drv extends uvm_driver #(fifo_seq_item);
@@ -44,8 +44,9 @@ package fifo_agent_pkg;
       task run_phase(uvm_phase phase);
          fifo_seq_item tr;
 
-         vif.wr_en <= 0;
-         vif.rd_en <= 0;
+         // reset interface
+         vif.wr_en   <= 0;
+         vif.rd_en   <= 0;
          vif.wr_data <= '0;
 
          forever begin
@@ -53,23 +54,22 @@ package fifo_agent_pkg;
 
             // WRITE
             @(posedge vif.wr_clk);
-            vif.wr_en <= tr.wr_en;
+            vif.wr_en   <= tr.wr_en;
             vif.wr_data <= tr.data_in;
 
+            @(posedge vif.wr_clk)  vif.wr_en <= 0; vif.wr_data <= 0; 
             // READ
             @(posedge vif.rd_clk);
-            vif.rd_en <= tr.rd_en;
+            vif.rd_en   <= tr.rd_en;
 
-            // Return to idle for next cycle
-            @(posedge vif.wr_clk);  
-            vif.wr_en <= 0;
-            @(posedge vif.rd_clk);  
-            vif.rd_en <= 0;
+            // returning interface to idle
+            @(posedge vif.wr_clk)  vif.wr_en <= 0;
+            @(posedge vif.rd_clk)  vif.rd_en <= 0;
 
             seq_item_port.item_done();
          end
       endtask
-   endclass : fifo_drv
+   endclass
 
    // Monitor
 class fifo_mon extends uvm_monitor;
@@ -122,7 +122,7 @@ class fifo_mon extends uvm_monitor;
             forever begin
                @(posedge vif.rd_clk);
 
-               if (rd_en_d && !empty_d) begin
+               if (rd_en_d) begin
                   fifo_seq_item tx =
                       fifo_seq_item::type_id::create("tx_rd", this);
                   tx.wr_en = 0;
