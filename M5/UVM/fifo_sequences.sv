@@ -16,8 +16,33 @@ import fifo_seq_item_sv_unit::*;
 class fifo_main_seq extends uvm_sequence #(fifo_seq_item);
   `uvm_object_utils(fifo_main_seq)
 
+  localparam bit BUG_INJECTION = 1;
+
+  function new(string name = "fifo_main_seq");
+    super.new(name);
+  endfunction : new
+
   task body();
     fifo_seq_item tr;
+    bit bug_injection_flag = BUG_INJECTION;
+
+    if (bug_injection_flag) begin
+      `uvm_info(get_type_name(),
+                "Bug injection ON: flooding with extra writes", UVM_MEDIUM)
+      repeat (300) begin
+        `uvm_create(tr)
+        assert(tr.randomize() with { wr_en == 1; rd_en == 0; });
+        `uvm_send(tr)
+      end
+
+      `uvm_info(get_type_name(),
+                "Bug injection ON: flooding with extra reads", UVM_MEDIUM)
+      repeat (300) begin
+        `uvm_create(tr)
+        assert(tr.randomize() with { wr_en == 0; rd_en == 1; });
+        `uvm_send(tr)
+      end
+    end
 
     // 1.  Fill the FIFO completely
     repeat (256) begin
@@ -33,71 +58,43 @@ class fifo_main_seq extends uvm_sequence #(fifo_seq_item);
     tr.data_in = 32'hFFFF_FFFF;   
     `uvm_send(tr)
 
-// 1b.  Sample half-full
-repeat (128) begin
-  `uvm_create(tr)
-  assert(tr.randomize() with { wr_en == 1; rd_en == 0; });
-  `uvm_send(tr)
-end
-
-
     // 2.  Drain the FIFO completely
-    repeat (256) begin
+    repeat (255) begin
       `uvm_create(tr)
       assert(tr.randomize() with { wr_en == 0; rd_en == 1; });
       `uvm_send(tr)
     end
 
-    // 2a. One *extra* read while EMPTY --> samples rd_en/empty cross
+    // 2a. One extra read 
     `uvm_create(tr)
     tr.wr_en = 0;
     tr.rd_en = 1;
     `uvm_send(tr)
 
-// 2b.  Sample half-empty
-repeat (128) begin
-  `uvm_create(tr)
-  assert(tr.randomize() with { wr_en == 0; rd_en == 1; });
-  `uvm_send(tr)
-end
-
-    // 3.  Keep your original 100 random mixed cycles
+    // 3.  100 Random Transactions
     repeat (100) begin
       `uvm_create(tr)
       assert(tr.randomize());
       `uvm_send(tr)
     end
 
-// 4.  4 × full-drain cycles
+// 4. Multiple full-empty cycles
 repeat (8) begin
-  repeat (256) begin
+  repeat (257) begin
     `uvm_create(tr)
     tr.wr_en = 1; tr.rd_en = 0;
     assert(tr.randomize() with { rd_en == 0; });
     `uvm_send(tr)
   end
   // draining completely
-  repeat (256) begin
+  repeat (257) begin
     `uvm_create(tr)
     tr.wr_en = 0; tr.rd_en = 1;
     assert(tr.randomize() with { wr_en == 0; });
     `uvm_send(tr)
   end
-end
+end 
 
-// Force occupancy to exactly 129 → 128 → 127
-// This guarantees at least one cycle with half_full == 1
-repeat (129) begin                
-  `uvm_create(tr)
-  tr.wr_en = 1; tr.rd_en = 0;
-  assert(tr.randomize() with { rd_en == 0; });
-  `uvm_send(tr)
-end
-
-// Now do a single read; half_full still asserted
-`uvm_create(tr)
-tr.wr_en = 0; tr.rd_en = 1;
-`uvm_send(tr)
 
   endtask
 endclass

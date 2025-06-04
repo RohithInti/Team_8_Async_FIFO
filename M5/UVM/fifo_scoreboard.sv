@@ -23,6 +23,7 @@ class fifo_scoreboard extends uvm_component;
   int overflow_cnt  = 0;
   int underflow_cnt = 0;
   int data_mism_cnt = 0;
+  int total_pushes = 0;                    
 
   function new (string name = "fifo_scoreboard",
                 uvm_component parent = null);
@@ -39,10 +40,12 @@ class fifo_scoreboard extends uvm_component;
 
     //  WRITE 
     if (tr.wr_en) begin
-      if (!tr.full)
+      if (!tr.full) begin
         ref_q.push_back(tr.data_in);
-      else begin
+        total_pushes++;
+     end else begin
         overflow_cnt++;
+        total_pushes++;
         `uvm_warning("FIFO_OFLOW",
                      $sformatf("Write while FULL at %0t", $time))
       end
@@ -75,10 +78,8 @@ class fifo_scoreboard extends uvm_component;
   endfunction : write
 
   function void report_phase (uvm_phase phase);
-    int total_pushes;                    
     super.report_phase(phase);
 
-    total_pushes = ref_q.size() + overflow_cnt;
 
     `uvm_info(get_type_name(),
               "=== FIFO SCOREBOARD SUMMARY ===", UVM_LOW)
@@ -97,10 +98,10 @@ class fifo_scoreboard extends uvm_component;
 
     if (data_mism_cnt == 0)
       `uvm_info(get_type_name(),
-                "Scoreboard PASSED – no data mismatches detected.", UVM_LOW)
+                "Scoreboard PASSED: no data mismatches detected.", UVM_LOW)
     else
       `uvm_error(get_type_name(),
-                 $sformatf("Scoreboard FAILED – %0d mismatches.",
+                 $sformatf("Scoreboard FAILED: %0d mismatches.",
                            data_mism_cnt))
   endfunction : report_phase
 endclass

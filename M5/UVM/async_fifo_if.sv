@@ -1,15 +1,13 @@
-//////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // File name: async_fifo.sv
 // Group: 8
 // Authors: Vaishnavi Pandhare
 //          Rohith Shri Krishna Inti 
 //          Mrudula Chekuri
 //          Venkat Sahith Reddy Cheedu
-// Description: This asynchronous fifo design uses the 256 depth (calculation is shown below)
-//              The module uses uses gray code pointers for corect synchronization between 
-//              write and read controller. We have defined 4 status flags to know the fifo 
-//              conditions such as full, half_full, empty, and half_empty. 
-//////////////////////////////////////////////////////////////////////////////////////////////
+// Description: This interface class contains the signals used for DUT and testbench environment.
+//              It also contains two modports for driver and monitor seperately. 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 interface async_fifo_if #(parameter int DATA_WIDTH = 32);
 
