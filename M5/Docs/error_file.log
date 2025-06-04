@@ -1,0 +1,2 @@
+UVM_ERROR fifo_scoreboard.sv(66) @ 2414: uvm_test_top.env.sb [DATA_MISM] Exp bffe55af  Got 00000000  @2414
+UVM_ERROR fifo_scoreboard.sv(103) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] Scoreboard FAILED: 1 mismatches.

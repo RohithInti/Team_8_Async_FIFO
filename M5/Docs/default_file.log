@@ -1,0 +1,8 @@
+UVM_INFO fifo_sequences.sv(30) @ 0: uvm_test_top.env.agt.seqr@@seq [fifo_main_seq] Bug injection ON: flooding with extra writes
+UVM_INFO fifo_sequences.sv(38) @ 2402: uvm_test_top.env.agt.seqr@@seq [fifo_main_seq] Bug injection ON: flooding with extra reads
+UVM_INFO fifo_coverage.sv(57) @ 43602: uvm_test_top.env.cov [fifo_coverage] Functional coverage = 97.22%
+UVM_INFO fifo_scoreboard.sv(84) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] === FIFO SCOREBOARD SUMMARY ===
+UVM_INFO fifo_scoreboard.sv(86) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] Total pushes: 1626
+UVM_INFO fifo_scoreboard.sv(89) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] Overflow attempts: 44
+UVM_INFO fifo_scoreboard.sv(92) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] Under-flow attempts: 78
+UVM_INFO fifo_scoreboard.sv(95) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] Data mismatches: 1

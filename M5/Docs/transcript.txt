@@ -1,0 +1,258 @@
+# //  Questa Sim-64
+# //  Version 2021.3_1 linux_x86_64 Aug 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do run.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vlog 2021.3_1 Compiler 2021.08 Aug 15 2021
+# Start time: 23:59:39 on Jun 03,2025
+# vlog -reportprogress 300 -sv "+acc=rn" "+cover=bcesft" async_fifo.sv fifo_seq_item.sv fifo_agent_pkg.sv fifo_scoreboard.sv fifo_coverage.sv 
+# -- Compiling module async_fifo
+# ** Note: (vlog-2286) fifo_seq_item.sv(11): Using implicit +incdir+/pkgs/mentor/questa/2021.3_1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package fifo_seq_item_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling package fifo_agent_pkg
+# -- Importing package fifo_seq_item_sv_unit
+# -- Compiling package fifo_scoreboard_sv_unit
+# -- Importing package fifo_seq_item_sv_unit
+# -- Compiling package fifo_coverage_sv_unit
+# -- Importing package fifo_seq_item_sv_unit
+# 
+# Top level modules:
+# 	async_fifo
+# End time: 23:59:40 on Jun 03,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2021.3_1 Compiler 2021.08 Aug 15 2021
+# Start time: 23:59:40 on Jun 03,2025
+# vlog -reportprogress 300 -sv "+acc=rn" "+cover=bcesft" -mfcu async_fifo_if.sv fifo_sequences.sv fifo_env.sv fifo_test.sv fifo_tb_top.sv 
+# -- Compiling interface async_fifo_if
+# ** Note: (vlog-2286) fifo_sequences.sv(12): Using implicit +incdir+/pkgs/mentor/questa/2021.3_1/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package async_fifo_if_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package fifo_seq_item_sv_unit
+# -- Importing package fifo_agent_pkg
+# -- Importing package fifo_scoreboard_sv_unit
+# -- Importing package fifo_coverage_sv_unit
+# -- Compiling module fifo_tb_top
+# 
+# Top level modules:
+# 	fifo_tb_top
+# End time: 23:59:41 on Jun 03,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" -L mtiUvm work.fifo_tb_top "+UVM_TESTNAME=fifo_test" -coverage -sv_seed random 
+# Start time: 23:59:41 on Jun 03,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.fifo_seq_item_sv_unit(fast)
+# Loading work.fifo_coverage_sv_unit(fast)
+# Loading work.fifo_scoreboard_sv_unit(fast)
+# Loading work.async_fifo_if(fast)
+# Loading work.fifo_agent_pkg(fast)
+# Loading work.async_fifo_if_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.fifo_tb_top(fast)
+# Loading work.async_fifo_if(fast__2)
+# Loading work.async_fifo(fast)
+# Loading /pkgs/mentor/questa/2021.3_1/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# Sv_Seed = 1344122947
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test fifo_test...
+# UVM_INFO fifo_sequences.sv(30) @ 0: uvm_test_top.env.agt.seqr@@seq [fifo_main_seq] Bug injection ON: flooding with extra writes
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2061: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2061
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2069: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2069
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2077: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2077
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2085: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2085
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2093: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2093
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2101: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2101
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2109: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2109
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2117: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2117
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2125: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2125
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2133: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2133
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2141: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2141
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2149: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2149
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2157: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2157
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2165: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2165
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2173: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2173
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2181: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2181
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2189: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2189
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2197: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2197
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2205: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2205
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2213: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2213
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2221: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2221
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2229: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2229
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2237: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2237
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2245: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2245
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2253: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2253
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2261: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2261
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2269: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2269
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2277: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2277
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2285: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2285
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2293: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2293
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2301: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2301
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2309: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2309
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2317: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2317
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2325: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2325
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2333: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2333
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2341: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2341
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2349: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2349
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2357: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2357
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2365: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2365
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2373: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2373
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2381: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2381
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2389: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2389
+# UVM_WARNING fifo_scoreboard.sv(49) @ 2397: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 2397
+# UVM_INFO fifo_sequences.sv(38) @ 2402: uvm_test_top.env.agt.seqr@@seq [fifo_main_seq] Bug injection ON: flooding with extra reads
+# UVM_ERROR fifo_scoreboard.sv(66) @ 2414: uvm_test_top.env.sb [DATA_MISM] Exp bffe55af  Got 00000000  @2414
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4462: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4462
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4470: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4470
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4478: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4478
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4486: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4486
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4494: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4494
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4502: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4502
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4510: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4510
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4518: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4518
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4526: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4526
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4534: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4534
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4542: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4542
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4550: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4550
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4558: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4558
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4566: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4566
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4574: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4574
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4582: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4582
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4590: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4590
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4598: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4598
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4606: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4606
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4614: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4614
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4622: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4622
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4630: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4630
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4638: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4638
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4646: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4646
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4654: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4654
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4662: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4662
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4670: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4670
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4678: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4678
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4686: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4686
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4694: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4694
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4702: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4702
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4710: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4710
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4718: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4718
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4726: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4726
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4734: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4734
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4742: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4742
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4750: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4750
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4758: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4758
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4766: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4766
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4774: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4774
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4782: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4782
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4790: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4790
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4798: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4798
+# UVM_WARNING fifo_scoreboard.sv(74) @ 4806: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 4806
+# UVM_WARNING fifo_scoreboard.sv(49) @ 6853: uvm_test_top.env.sb [FIFO_OFLOW] Write while FULL at 6853
+# UVM_WARNING fifo_scoreboard.sv(74) @ 8926: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 8926
+# UVM_WARNING fifo_scoreboard.sv(74) @ 8966: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 8966
+# UVM_WARNING fifo_scoreboard.sv(74) @ 8974: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 8974
+# UVM_WARNING fifo_scoreboard.sv(74) @ 9014: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 9014
+# UVM_WARNING fifo_scoreboard.sv(74) @ 9022: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 9022
+# UVM_WARNING fifo_scoreboard.sv(74) @ 9030: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 9030
+# UVM_WARNING fifo_scoreboard.sv(74) @ 9038: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 9038
+# UVM_WARNING fifo_scoreboard.sv(74) @ 17902: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 17902
+# UVM_WARNING fifo_scoreboard.sv(74) @ 17934: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 17934
+# UVM_WARNING fifo_scoreboard.sv(74) @ 26014: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 26014
+# UVM_WARNING fifo_scoreboard.sv(74) @ 26022: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 26022
+# UVM_WARNING fifo_scoreboard.sv(74) @ 26030: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 26030
+# UVM_WARNING fifo_scoreboard.sv(74) @ 26046: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 26046
+# UVM_WARNING fifo_scoreboard.sv(74) @ 26062: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 26062
+# UVM_WARNING fifo_scoreboard.sv(74) @ 26078: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 26078
+# UVM_WARNING fifo_scoreboard.sv(74) @ 26118: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 26118
+# UVM_WARNING fifo_scoreboard.sv(74) @ 26142: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 26142
+# UVM_WARNING fifo_scoreboard.sv(74) @ 26150: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 26150
+# UVM_WARNING fifo_scoreboard.sv(74) @ 26158: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 26158
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30062: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30062
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30086: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30086
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30102: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30102
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30110: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30110
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30126: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30126
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30134: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30134
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30174: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30174
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30190: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30190
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30206: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30206
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30230: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30230
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30238: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30238
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30254: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30254
+# UVM_WARNING fifo_scoreboard.sv(74) @ 30270: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 30270
+# UVM_WARNING fifo_scoreboard.sv(74) @ 42582: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 42582
+# UVM_WARNING fifo_scoreboard.sv(74) @ 42590: uvm_test_top.env.sb [FIFO_UFLOW] Read while EMPTY at 42590
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 43602: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO fifo_coverage.sv(57) @ 43602: uvm_test_top.env.cov [fifo_coverage] Functional coverage = 97.22%
+# UVM_INFO fifo_scoreboard.sv(84) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] === FIFO SCOREBOARD SUMMARY ===
+# UVM_INFO fifo_scoreboard.sv(86) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] Total pushes: 1626
+# UVM_INFO fifo_scoreboard.sv(89) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] Overflow attempts: 44
+# UVM_INFO fifo_scoreboard.sv(92) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] Under-flow attempts: 78
+# UVM_INFO fifo_scoreboard.sv(95) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] Data mismatches: 1
+# UVM_ERROR fifo_scoreboard.sv(103) @ 43602: uvm_test_top.env.sb [fifo_scoreboard] Scoreboard FAILED: 1 mismatches.
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   12
+# UVM_WARNING :  122
+# UVM_ERROR :    2
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DATA_MISM]     1
+# [FIFO_OFLOW]    44
+# [FIFO_UFLOW]    78
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [fifo_coverage]     1
+# [fifo_main_seq]     2
+# [fifo_scoreboard]     6
+# ** Note: $finish    : /pkgs/mentor/questa/2021.3_1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 43602 ns  Iteration: 54  Instance: /fifo_tb_top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at /pkgs/mentor/questa/2021.3_1/questasim/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# coverage exclude -srcfile fifo_agent_pkg.sv -linerange 22 30 41 77 90 149 -code s
+# ** UI-Msg: (vsim-4036) The 'coverage exclude' command had no effect on some/all objects because
+# no matching coverage data was found.
+# 
+# coverage exclude -srcfile fifo_coverage.sv -linerange 58 66 -code b
+# ** UI-Msg: (vsim-4036) The 'coverage exclude' command had no effect on some/all objects because
+# no matching coverage data was found.
+# 
+quit -sim
+# End time: 00:00:33 on Jun 04,2025, Elapsed time: 0:00:52
+# Errors: 0, Warnings: 0
